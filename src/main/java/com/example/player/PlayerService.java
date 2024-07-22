@@ -93,7 +93,6 @@ public class PlayerService implements PlayerRepository {
 
         else {
             team.remove(playerId);
-            throw new ResponseStatusException(HttpStatus.NO_CONTENT);
         }
     }
 
