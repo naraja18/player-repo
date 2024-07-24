@@ -14,11 +14,11 @@ public class Player {
         this.role = role;
     }
 
-    public int getplayerId() {
+    public int getPlayerId() {
         return playerId;
     }
 
-    public void setplayerId() {
+    public void setPlayerId(int playerId) {
         this.playerId = playerId;
     }
 
@@ -26,7 +26,7 @@ public class Player {
         return jerseyNumber;
     }
 
-    public void setjerseyNumber() {
+    public void setjerseyNumber(int jerseyNumber) {
         this.jerseyNumber = jerseyNumber;
     }
 
@@ -34,7 +34,7 @@ public class Player {
         return playerName;
     }
 
-    public void setplayerName() {
+    public void setplayerName(String playerName) {
         this.playerName = playerName;
     }
 
@@ -42,7 +42,7 @@ public class Player {
         return role;
     }
 
-    public void setrole() {
+    public void setrole(String role) {
         this.role = role;
     }
 

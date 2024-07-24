@@ -1,18 +1,12 @@
-/*
- 
-* You can use the following import statements
- 
- * import org.springframework.web.server.ResponseStatusException;
- * import org.springframework.http.HttpStatus;
- 
- */
 
 package com.example.player;
 
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 import javax.validation.OverridesAttribute;
-
 import com.example.player.Player;
 import com.example.player.PlayerRepository;
+import java.util.*;
 
 // Don't modify the below code
 
@@ -38,15 +32,15 @@ public class PlayerService implements PlayerRepository {
     int uniquePlayerId = 12;
 
     @Override
-    public ArrayList<Player> getPlayer() {
-        Collections<Player> PlayerCollections = team.getValues();
-        List<Player> players = new ArrayList<>(PlayerCollections);
+    public ArrayList<Player> getPlayers() {
+        Collection<Player> PlayerCollections = team.values();
+        ArrayList<Player> players = new ArrayList<>(PlayerCollections);
         return players;
     }
 
     @Override
     public Player addPlayer(Player player) {
-        player.SetId(uniquePlayerId);
+        player.setPlayerId(uniquePlayerId);
         team.put(uniquePlayerId, player);
         uniquePlayerId += 1;
         return player;
@@ -63,7 +57,7 @@ public class PlayerService implements PlayerRepository {
 
     @Override
     public Player updatePlayer(int PlayerId, Player player) {
-        Player existingPlayer = hmap.get(PlayerId);
+        Player existingPlayer = team.get(PlayerId);
 
         if (existingPlayer == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -93,6 +87,7 @@ public class PlayerService implements PlayerRepository {
 
         else {
             team.remove(playerId);
+            throw new ResponseStatusException(HttpStatus.NO_CONTENT);
         }
     }
 

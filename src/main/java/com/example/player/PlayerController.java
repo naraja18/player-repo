@@ -6,9 +6,11 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.*;
 import com.example.player.PlayerService;
+import com.example.player.Player;
 
 @RestController
 public class PlayerController {
@@ -16,7 +18,7 @@ public class PlayerController {
 
     @GetMapping("/players")
     public ArrayList<Player> getPlayer() {
-        return apiservice.getPlayer();
+        return apiservice.getPlayers();
     }
 
     @PostMapping("/players")
@@ -27,7 +29,7 @@ public class PlayerController {
     @GetMapping("/player/{playerId}")
 
     public Player getPlayerById(@PathVariable("playerId") int playerId) {
-        return apiservice.getPlayerById();
+        return apiservice.getPlayerById(playerId);
 
     }
 
